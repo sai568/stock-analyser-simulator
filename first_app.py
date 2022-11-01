@@ -54,7 +54,8 @@ def Benchmark_stategy(start,end,investment):
     url = 'https://archives.nseindia.com/content/indices/ind_nifty50list.csv'
     #s = requests.get(url).content
     #df = pd.read_csv(io.StringIO(s.decode('utf-8')))
-    df = pd.read_csv(url)
+    storage_options = {'User-Agent': 'Mozilla/5.0'}
+    df = pd.read_csv(url,storage_options = storage_options)
     st.dataframe(df)
     symbols = list(df.Symbol)
     
