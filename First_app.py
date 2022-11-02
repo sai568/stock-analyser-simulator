@@ -94,7 +94,7 @@ def Sample_strategy(start,end,investment,n_days_for_measuring_performance,top_n_
     
     #selecting top-n stocks
     top_n = performance.sort_values(ascending = False).iloc[0:(int(top_n_stocks))].reset_index()
-    top_n.rename(columns = {'Close':'Percentage_returns_'+str(n_days_for_measuring_performance)+'_days'}, inplace=True)
+    top_n.rename(columns = {'Close':'Percentage_returns_'+str(int(n_days_for_measuring_performance))+'_days'}, inplace=True)
     top_n
     
     #STEP-2 Apply strategy based on performance of stocks
