@@ -88,7 +88,7 @@ def Sample_strategy(start,end,investment,n_days_for_measuring_performance,top_n_
     performance = ((t_minus_1_day.Close/t_minus_nth_day.Close)-1)*100
 
     top_n = performance.sort_values(ascending = False).iloc[0:(int(top_n_stocks))].reset_index()
-    top_n.rename(columns = {'Close':'Performance_of_last_n_days'}, inplace=True)
+    top_n.rename(columns = {'Close':'Percentage_returns_'+str(n_days_for_measuring_performance)+'_days'}, inplace=True)
     
     I_s,sample_strategy_EC = Equity_curuve_values(list(top_n.Name))
     return top_n,I_s,sample_strategy_EC
@@ -178,7 +178,8 @@ if(st.button('Submit')):
                .background_gradient(cmap=cm, subset=['CAGR(%)','Voltality(%)','Sharpe'])
                .highlight_max(color='red',subset=['CAGR(%)','Voltality(%)','Sharpe'])
                .set_caption('PERFORMACE METRICS')
-               .set_table_styles(styles))
+               .set_table_styles(styles)
+               .set_precision(2)
     
     
     fig, ax = plt.subplots(figsize=(10,10))
