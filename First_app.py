@@ -206,7 +206,7 @@ if(st.button('Submit')):
     #Using Steam lit to host app(TASK_5)
     st.pyplot(fig)
     st.dataframe(Results)
-    st.dataframe(np.round(top_n,2))
+    st.dataframe(top_n.style.set_precision(2))
 
 
 # In[ ]:
