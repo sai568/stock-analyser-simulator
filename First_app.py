@@ -152,7 +152,7 @@ top_n_stocks = st.number_input('Number of top stocks to select: ')
 if(st.button('Submit')):
     start = datetime.datetime.strptime(start, '%Y-%m-%d').date()
     end = datetime.datetime.strptime(end, '%Y-%m-%d').date()
-    st.success(type('Hurray'))
+    st.success('Please wait, while we analyse and fetch data')
     
     #Bnechmark strategy (TASK-1)
     I_b,Benchmark_EC = Benchmark_stategy(start,end,investment)
@@ -166,7 +166,7 @@ if(st.button('Submit')):
     nifty_50['Equity_curuve_values'] = nifty_50['Number_of_shares_bought']*nifty_50['Close']
     
     #Measuring metrics(Task-3)
-    Results = pd.DataFrame({'Benchmark_strategy': Metrics(Benchmark_EC),'Performance_based_strategy': Voltality(Sample_EC),'Nifty_50':Voltality(nifty_50)}).T
+    Results = pd.DataFrame({'Benchmark_strategy': Metrics(Benchmark_EC),'Performance_based_strategy': Metrics(Sample_EC),'Nifty_50':Metrics(nifty_50)}).T
     
     Results.columns = ['CAGR(%)','Voltality(%)','Sharpe']
     Results = np.round(Results, 3)
@@ -207,7 +207,7 @@ if(st.button('Submit')):
     #Using Steam lit to host app(TASK_5)
     st.pyplot(fig)
     st.dataframe(Results)
-    st.dataframe(np.round(top_n))
+    st.dataframe(np.round(top_n,2))
 
 
 # In[ ]:
