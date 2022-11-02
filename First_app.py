@@ -179,7 +179,7 @@ if(st.button('Submit')):
                .highlight_max(color='red',subset=['CAGR(%)','Voltality(%)','Sharpe'])
                .set_caption('PERFORMACE METRICS')
                .set_table_styles(styles)
-               .set_precision(2)
+               .set_precision(2))
     
     
     fig, ax = plt.subplots(figsize=(10,10))
