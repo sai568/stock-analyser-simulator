@@ -83,7 +83,7 @@ def Sample_strategy(start,end,investment,n_days_for_measuring_performance,top_n_
 
     for i in symbols:
         stock = []
-        stock = yf.download(i+".ns",temp_start,temp_end)        
+        stock = yf.download(i+".ns",start,end)        
         stock['Name'] = i
         data_n_days = data_n_days.append(stock)
     
