@@ -70,7 +70,7 @@ def Benchmark_stategy(start,end,investment):
 def Sample_strategy(start,end,investment,n_days_for_measuring_performance,top_n_stocks):
     
     temp_end = start 
-    temp_start = end - datetime.timedelta(days=n_days_for_measuring_performance)
+    temp_start = temp_end - datetime.timedelta(days=n_days_for_measuring_performance)
     
     #Download nifty_50 data and load
     url = 'https://archives.nseindia.com/content/indices/ind_nifty50list.csv'
